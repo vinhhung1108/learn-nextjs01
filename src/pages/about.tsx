@@ -1,7 +1,6 @@
-import Header from '@/components/common/header'
+import { AdminLayout, MainLayout } from '@/components/layout'
 import { useRouter } from 'next/router'
-import React, { useEffect, useState } from 'react'
-import dynamic from 'next/dynamic'
+import { useEffect, useState } from 'react'
 
 // const Header = dynamic(()=> import('@/components/common/header'), { ssr: false})
 
@@ -35,7 +34,7 @@ export default function AboutPage(props: AboutPageProps) {
   return (
     <div>
       <h1>About page - here</h1>
-      <Header />
+      {/* <Header /> */}
       <ul className="post-list">
         {postList && postList.map((x: any) => <li key={x._id}>{x.title}</li>)}
       </ul>
@@ -44,6 +43,8 @@ export default function AboutPage(props: AboutPageProps) {
     </div>
   )
 }
+
+AboutPage.Layout = MainLayout
 
 export async function getStaticProps() {
   console.log('get Static Props')
