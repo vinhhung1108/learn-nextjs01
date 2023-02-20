@@ -14,7 +14,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     return res.status(404).json({ name: 'method not supported' })
   }
 
-  const resposne = await fetch('http://localhost:4000/post?page=1&limit=10')
+  const resposne = await fetch(process.env.API_URL + '/post?page=1&limit=10')
   const data = await resposne.json()
   res.status(200).json(data)
 }

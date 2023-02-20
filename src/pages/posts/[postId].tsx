@@ -26,7 +26,7 @@ export default function DetailPostPage({ post }: DetailPostPageProps) {
 }
 export const getStaticPaths: GetStaticPaths = async () => {
   console.log('/nGET STATIC PATH')
-  const response = await fetch('http://localhost:4000/post?page=1')
+  const response = await fetch(process.env.API_URL + '/post?page=1')
   const data = await response.json()
   if (!Array.isArray(data)) return { paths: [], fallback: false }
   return {
@@ -40,7 +40,7 @@ export const getStaticProps: GetStaticProps<DetailPostPageProps> = async (
   console.log('/nGET STATIC PROPS', context.params?.postId)
   const postId = context.params?.postId
   if (!postId) return { notFound: true }
-  const response = await fetch(`http://localhost:4000/post/${postId}`)
+  const response = await fetch(process.env.API_URL + `/post/${postId}`)
   const data = await response.json()
   return {
     props: {

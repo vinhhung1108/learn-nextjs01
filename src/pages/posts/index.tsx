@@ -27,7 +27,7 @@ export default function PostsListPage({ posts }: PostsListPageProps) {
 
 export const getStaticProps: GetStaticProps<PostsListPageProps> = async () => {
   // console.log('get static props')
-  const response = await fetch('http://localhost:4000/post?page=1')
+  const response = await fetch(process.env.API_URL + '/post?page=1')
   const data = await response.json()
   if (!Array.isArray(data)) {
     return { props: { posts: [] } }
