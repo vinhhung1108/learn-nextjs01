@@ -12,6 +12,9 @@ export const config = {
 const proxy = httpProxy.createProxyServer()
 
 export default function handler(req: NextApiRequest, res: NextApiResponse<any>) {
+  if (req.method !== 'GET') {
+    return res.status(404).json({ message: 'Method not supported' })
+  }
   return new Promise((resolve) => {
     const cookies = new Cookies(req, res)
     const accessToken = cookies.get('access_token')

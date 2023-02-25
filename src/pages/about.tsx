@@ -14,7 +14,7 @@ export default function AboutPage(props: AboutPageProps) {
   useEffect(() => {
     if (!page) return
     ;(async () => {
-      const response = await fetch(process.env.API_URL + `/post?page=${page}`)
+      const response = await fetch('http://localhost:3000' + `/api/post?page=${page}`)
       const data = await response.json()
       setPostList(data)
     })()
