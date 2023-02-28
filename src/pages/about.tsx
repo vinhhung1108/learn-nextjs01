@@ -1,4 +1,5 @@
 import { AdminLayout, MainLayout } from '@/components/layout'
+import { Box, Typography } from '@mui/material'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 
@@ -30,15 +31,18 @@ export default function AboutPage() {
   //   )
   // }
   return (
-    <div>
-      <h1>About page - here</h1>
+    <Box>
+      <Typography component="h1" variant="h3" color="primary.main">
+        About Page
+      </Typography>
       {/* <Header /> */}
       {/* <ul className="post-list">
         {postList && postList.map((x: any) => <li key={x._id}>{x.title}</li>)}
       </ul> */}
 
       {/* <button onClick={handleNextPage}>Next Page</button> */}
-    </div>
+      <div>Content About page</div>
+    </Box>
   )
 }
 
