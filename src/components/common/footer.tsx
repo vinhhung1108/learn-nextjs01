@@ -1,10 +1,10 @@
 import { Box } from '@mui/material'
 import * as React from 'react'
 
-export function Header() {
+export function Footer() {
   return (
-    <Box component="header" py={2} textAlign="center">
-      Header
+    <Box component="footer" textAlign="center" py={2}>
+      Footer
     </Box>
   )
 }

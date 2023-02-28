@@ -17,14 +17,14 @@ const clientSideEmotionCache = createEmotionCache()
 export default function App({
   Component,
   pageProps,
-  emotionCache = clientSideEmotionCache,
-}: AppPropsWithLayout) {
+}: // emotionCache = clientSideEmotionCache,
+AppPropsWithLayout) {
   moment.tz.setDefault('Asia/Ho_Chi_Minh')
   moment.locale('en-bg')
   console.log('Render  App')
   const Layout = Component.Layout ?? EmptyLayout
   return (
-    <CacheProvider value={emotionCache}>
+    <CacheProvider value={clientSideEmotionCache}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <SWRConfig
