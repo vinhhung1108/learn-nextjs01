@@ -25,4 +25,38 @@ export const theme = createTheme({
   typography: {
     fontFamily: roboto.style.fontFamily,
   },
+  components: {
+    MuiContainer: {
+      defaultProps: {
+        maxWidth: 'md',
+      },
+      styleOverrides: {
+        maxWidthMd: {
+          maxWidth: '860px',
+          '@media (min-width: 900px)': {
+            maxWidth: '860px',
+          },
+        },
+        maxWidthSm: {
+          maxWidth: '680px',
+          '@media (min-width: 600px)': {
+            maxWidth: '680px',
+          },
+        },
+      },
+    },
+    MuiLink: {
+      defaultProps: {
+        underline: 'none',
+      },
+      styleOverrides: {
+        root: {
+          color: 'black',
+          '&:hover': {
+            color: '#556cd6',
+          },
+        },
+      },
+    },
+  },
 })

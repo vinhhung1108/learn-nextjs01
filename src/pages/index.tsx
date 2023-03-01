@@ -2,8 +2,8 @@ import { Inter } from '@next/font/google'
 
 import { MainLayout } from '@/components/layout'
 import { NextPageWithLayout } from '@/models'
-import { Box } from '@mui/material'
 import { useRouter } from 'next/router'
+import { Box } from '@mui/system'
 
 const inter = Inter({ subsets: ['latin'] })
 
