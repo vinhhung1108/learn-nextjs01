@@ -1,12 +1,14 @@
-import { Container, Stack, Link as MuiLink } from '@mui/material'
+import { Container, Link as MuiLink, Stack } from '@mui/material'
 import { Box } from '@mui/system'
+import clsx from 'clsx'
 import Link from 'next/link'
-import * as React from 'react'
+import { useRouter } from 'next/router'
 import { ROUTER_LIST } from './routers'
 
 export interface HeaderDesktopProps {}
 
 export function HeaderDesktop(props: HeaderDesktopProps) {
+  const router = useRouter()
   return (
     <Box display={{ xs: 'none', md: 'block' }} py={2}>
       <Container>
@@ -18,6 +20,7 @@ export function HeaderDesktop(props: HeaderDesktopProps) {
               key={route.path}
               variant="body2"
               href={route.path}
+              className={clsx({ active: router.pathname === route.path })}
             >
               {route.label}
             </MuiLink>

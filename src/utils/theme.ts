@@ -52,7 +52,7 @@ export const theme = createTheme({
       styleOverrides: {
         root: {
           color: 'black',
-          '&:hover': {
+          '&:hover, &.active': {
             color: '#556cd6',
           },
         },
