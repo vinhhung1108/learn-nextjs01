@@ -15,7 +15,7 @@ export function HeaderDesktop(props: HeaderDesktopProps) {
         <Stack direction="row" justifyContent="flex-end">
           {ROUTER_LIST.map((route) => (
             <MuiLink
-              sx={{ ml: 2 }}
+              sx={{ ml: 2, fontWeight: 'medium' }}
               component={Link}
               key={route.path}
               variant="body2"
@@ -27,7 +27,6 @@ export function HeaderDesktop(props: HeaderDesktopProps) {
           ))}
         </Stack>
       </Container>
-      Header Desktop
     </Box>
   )
 }
