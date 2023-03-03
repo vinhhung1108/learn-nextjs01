@@ -13,14 +13,17 @@ export const roboto = Roboto({
 export let theme = createTheme({
   palette: {
     primary: {
-      main: '#556cd6',
+      main: '#FF6464',
     },
     secondary: {
-      main: '#19857b',
-      // light: '#EDF7FA',
+      main: '#00A8CC',
+      light: '#EDF7FA',
     },
     error: {
       main: red.A400,
+    },
+    text: {
+      primary: '#21243D',
     },
   },
   typography: {
@@ -53,7 +56,7 @@ export let theme = createTheme({
       },
       styleOverrides: {
         root: {
-          color: 'black',
+          color: 'secondary.light',
           '&:hover, &.active': {
             color: '#556cd6',
           },
