@@ -1,10 +1,27 @@
-import { Box } from '@mui/material'
-import * as React from 'react'
+import { Facebook, Instagram, LinkedIn, Twitter } from '@mui/icons-material'
+import { Box, Icon, Stack, Typography } from '@mui/material'
+import { Link as MuiLink } from '@mui/material'
+import Link from 'next/link'
 
 export function Footer() {
+  const socialLink = [
+    { icon: Facebook, url: 'https://google.com' },
+    { icon: Instagram, url: 'https://google.com' },
+    { icon: Twitter, url: 'https://google.com' },
+    { icon: LinkedIn, url: 'https://google.com' },
+  ]
   return (
     <Box component="footer" textAlign="center" py={2}>
-      Footer
+      <Stack direction="row" justifyContent="center">
+        {socialLink.map((item, index) => (
+          <Box key={index} p={2}>
+            <MuiLink component={Link} href={item.url} target="_blank" rel="noreferrer">
+              <Icon component={item.icon} sx={{ fontSize: 48, color: 'GrayText' }} />
+            </MuiLink>
+          </Box>
+        ))}
+      </Stack>
+      <Typography>Copyright ©{new Date().getFullYear()} All rights reserved</Typography>
     </Box>
   )
 }
