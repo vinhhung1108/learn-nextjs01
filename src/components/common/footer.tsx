@@ -16,7 +16,7 @@ export function Footer() {
         {socialLink.map((item, index) => (
           <Box key={index} p={2}>
             <MuiLink component={Link} href={item.url} target="_blank" rel="noreferrer">
-              <Icon component={item.icon} sx={{ fontSize: 48, color: 'GrayText' }} />
+              <Icon component={item.icon} sx={{ fontSize: 48, color: '#21243D' }} />
             </MuiLink>
           </Box>
         ))}
