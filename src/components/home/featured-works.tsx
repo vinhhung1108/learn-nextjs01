@@ -8,8 +8,8 @@ export function FeatureWorks() {
     {
       id: '1',
       title: 'Designing Dashboards',
-      createdAt: '1677823307512',
-      updatedAt: '1677823307512',
+      createdAt: '2023-03-18T22:00:00Z',
+      updatedAt: '2023-03-18T22:00:00Z',
       tagList: ['Dashboard'],
       shortDescription:
         'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.',
@@ -21,8 +21,8 @@ export function FeatureWorks() {
     {
       id: '2',
       title: 'Vibrant Portraits of 2020',
-      createdAt: '1677823307512',
-      updatedAt: '1677823307512',
+      createdAt: '2023-03-18T22:20:00Z',
+      updatedAt: '2023-03-18T22:00:00Z',
       tagList: ['Illustration'],
       shortDescription:
         'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.',
@@ -34,8 +34,8 @@ export function FeatureWorks() {
     {
       id: '3',
       title: '36 Days of Malayalam type',
-      createdAt: '1677823307512',
-      updatedAt: '1677823307512',
+      createdAt: '2023-03-18T22:02:00Z',
+      updatedAt: '2023-03-18T21:00:00Z',
       tagList: ['Typography'],
       shortDescription:
         'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.',

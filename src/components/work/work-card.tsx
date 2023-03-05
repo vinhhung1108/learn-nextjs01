@@ -1,8 +1,8 @@
 import { Work } from '@/models/work'
 import { Chip, Stack, Typography } from '@mui/material'
 import { Box } from '@mui/system'
+import { format } from 'date-fns'
 import Image from 'next/image'
-import { Month, Year } from '@/components/common'
 
 export interface WorkCardProps {
   work: Work
@@ -19,7 +19,12 @@ export function WorkCard({ work }: WorkCardProps) {
           {work.title}
         </Typography>
         <Stack direction="row" my={2}>
-          <Chip color="secondary" label={<Year dateString={work.createdAt} />} size="small" />
+          <Chip
+            color="secondary"
+            // label={<Year dateString={work.createdAt} />}
+            label={format(new Date(work.createdAt), 'yyyy')}
+            size="small"
+          />
           <Typography ml={3} color="GrayText" variant="body2">
             {work.tagList.join(', ')}
           </Typography>

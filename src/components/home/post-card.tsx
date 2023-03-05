@@ -1,6 +1,6 @@
-import { FullDate } from '@/components/common'
 import { Post } from '@/models'
-import { Card, CardContent, Divider, Stack, Typography } from '@mui/material'
+import { Card, CardContent } from '@mui/material'
+import { PostItem } from '../blog'
 
 export interface PostCardProps {
   post: Post
@@ -11,17 +11,7 @@ export function PostCard({ post }: PostCardProps) {
   return (
     <Card>
       <CardContent>
-        <Typography variant="h5" fontWeight="bold">
-          {post.title}
-        </Typography>
-        <Stack sx={{ my: 2 }} direction="row">
-          <Typography variant="body2">
-            <FullDate dateString={post.publishedDate} />
-          </Typography>
-          <Divider flexItem orientation="vertical" sx={{ mx: 2 }} />
-          <Typography variant="body2">{post.tagList.join(', ')}</Typography>
-        </Stack>
-        <Typography variant="body1">{post.description}</Typography>
+        <PostItem post={post} />
       </CardContent>
     </Card>
   )
