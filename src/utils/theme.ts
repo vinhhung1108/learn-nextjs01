@@ -13,7 +13,7 @@ export const roboto = Roboto({
 export let theme = createTheme({
   palette: {
     primary: {
-      main: '#FF6464',
+      main: '#ff6464',
     },
     secondary: {
       main: '#00A8CC',
