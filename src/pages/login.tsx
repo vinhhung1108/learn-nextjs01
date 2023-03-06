@@ -1,7 +1,7 @@
 import { authApi } from '@/api-client'
+import { LoginForm } from '@/components/auth'
 import { useAuth } from '@/hooks'
 import { useRouter } from 'next/router'
-import * as React from 'react'
 
 // import { useSWRConfig } from 'swr'
 
@@ -40,15 +40,7 @@ export default function LoginPage() {
       console.log('Failed to logout ', error)
     }
   }
-  // if (isLoading) return 'Loading...'
-  // if (!isLoading && error) {
-  // mutate({ data: {} }, false)
-  // mutateAll('/auth/profile', { data: {} }, true)
-  // }
-  // if (!isLoading && profile?.data?.username) {
-  //   console.log('Success to ridirect to about page')
-  //   router.push('/about')
-  // }
+
   return (
     <div>
       <h1>LOGIN PAGE</h1>
@@ -56,6 +48,8 @@ export default function LoginPage() {
       <button onClick={handleGetProfileClick}>Get Profile</button>
       <button onClick={handleLogoutClick}>Logout</button>
       <button onClick={() => router.push('/about')}>Go to About</button>
+
+      <LoginForm />
     </div>
   )
 }
