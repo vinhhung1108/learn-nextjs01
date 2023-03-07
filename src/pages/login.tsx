@@ -1,6 +1,7 @@
 import { authApi } from '@/api-client'
 import { LoginForm } from '@/components/auth'
 import { useAuth } from '@/hooks'
+import { LoginPayload } from '@/models'
 import { useRouter } from 'next/router'
 
 // import { useSWRConfig } from 'swr'
@@ -16,7 +17,10 @@ export default function LoginPage() {
 
   async function handleLoginClick() {
     try {
-      await login()
+      await login({
+        username: 'kem3',
+        password: '123456',
+      })
       console.log('Redirect to dashboard')
       await router.push('/about')
     } catch (error) {
@@ -41,6 +45,16 @@ export default function LoginPage() {
     }
   }
 
+  async function handleLoginSubmit(payload: LoginPayload) {
+    try {
+      await login(payload)
+      // console.log('Redirect to dashboard')
+      // await router.push('/about')
+    } catch (error) {
+      console.log('Failed to login ', error)
+    }
+  }
+
   return (
     <div>
       <h1>LOGIN PAGE</h1>
@@ -49,7 +63,7 @@ export default function LoginPage() {
       <button onClick={handleLogoutClick}>Logout</button>
       <button onClick={() => router.push('/about')}>Go to About</button>
 
-      <LoginForm />
+      <LoginForm onSubmit={handleLoginSubmit} />
     </div>
   )
 }

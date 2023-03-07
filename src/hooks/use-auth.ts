@@ -1,4 +1,5 @@
 import { authApi } from '@/api-client'
+import { LoginPayload } from '@/models'
 import { useRouter } from 'next/router'
 import useSWR, { useSWRConfig } from 'swr'
 import { PublicConfiguration } from 'swr/_internal'
@@ -16,11 +17,8 @@ export function useAuth(option?: Partial<PublicConfiguration>) {
     ...option,
   })
 
-  async function login() {
-    await authApi.login({
-      username: 'kem1',
-      password: '123456',
-    })
+  async function login(payload: LoginPayload) {
+    await authApi.login(payload)
     await mutate()
   }
   async function logout() {
