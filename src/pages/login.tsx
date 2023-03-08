@@ -2,13 +2,13 @@ import { authApi } from '@/api-client'
 import { LoginForm } from '@/components/auth'
 import { useAuth } from '@/hooks'
 import { LoginPayload } from '@/models'
+import { Paper, Typography } from '@mui/material'
+import { Box } from '@mui/system'
 import { useRouter } from 'next/router'
-
-// import { useSWRConfig } from 'swr'
 
 export default function LoginPage() {
   const router = useRouter()
-  // const { mutate: mutateAll } = useSWRConfig()
+
   const { profile, error, login, logout, isLoading, mutate } = useAuth({
     revalidateOnMount: true,
     revalidateOnFocus: true,
@@ -49,21 +49,21 @@ export default function LoginPage() {
     try {
       await login(payload)
       // console.log('Redirect to dashboard')
-      // await router.push('/about')
+      await router.push('/')
     } catch (error) {
       console.log('Failed to login ', error)
     }
   }
 
   return (
-    <div>
-      <h1>LOGIN PAGE</h1>
-      <button onClick={handleLoginClick}>Login</button>
-      <button onClick={handleGetProfileClick}>Get Profile</button>
-      <button onClick={handleLogoutClick}>Logout</button>
-      <button onClick={() => router.push('/about')}>Go to About</button>
+    <Box>
+      <Paper elevation={4} sx={{ mt: 8, p: 4, maxWidth: '480px', mx: 'auto', textAlign: 'center' }}>
+        <Typography component="h1" variant="h4" sx={{ mb: 3 }}>
+          LOGIN PAGE
+        </Typography>
 
-      <LoginForm onSubmit={handleLoginSubmit} />
-    </div>
+        <LoginForm onSubmit={handleLoginSubmit} />
+      </Paper>
+    </Box>
   )
 }

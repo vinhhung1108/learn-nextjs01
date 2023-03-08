@@ -32,15 +32,16 @@ export function LoginForm({ onSubmit }: LoginFormProps) {
   })
 
   function handleLoginSubmit(payload: LoginPayload) {
-    console.log(payload)
+    // console.log(payload)
     onSubmit?.(payload)
   }
   return (
     <Box component="form" onSubmit={handleSubmit(handleLoginSubmit)}>
-      <InputField name="username" control={control} />
+      <InputField name="username" label="Username" control={control} />
       <InputField
         type={showPassword ? 'text' : 'password'}
         name="password"
+        label="Password"
         control={control}
         InputProps={{
           endAdornment: (
@@ -57,7 +58,7 @@ export function LoginForm({ onSubmit }: LoginFormProps) {
         }}
       />
 
-      <Button type="submit" variant="contained">
+      <Button type="submit" variant="contained" fullWidth sx={{ mt: 3 }}>
         LOGIN
       </Button>
     </Box>

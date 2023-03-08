@@ -8,7 +8,6 @@ export type InputFieldProps = TextFieldProps & {
 
 export function InputField({
   name,
-  label,
   control,
   onChange: externalOnChange, //prevent from form props, using onChange of useController instead
   onBlur: externalOnBlur, //Similar above
