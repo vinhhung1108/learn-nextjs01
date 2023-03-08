@@ -5,17 +5,30 @@ import { Box } from '@mui/system'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { InputField } from '../form'
+import * as yup from 'yup'
+import { yupResolver } from '@hookform/resolvers/yup'
 
 export interface LoginFormProps {
   onSubmit?: (payload: LoginPayload) => void
 }
 export function LoginForm({ onSubmit }: LoginFormProps) {
+  const schema = yup.object().shape({
+    username: yup
+      .string()
+      .required('Please enter username')
+      .min(4, 'Username at least 4 character'),
+    password: yup
+      .string()
+      .required('Please enter username')
+      .min(6, 'Username at least 6 character'),
+  })
   const [showPassword, setShowPassword] = useState(false)
   const { control, handleSubmit } = useForm<LoginPayload>({
     defaultValues: {
       username: '',
       password: '',
     },
+    resolver: yupResolver(schema),
   })
 
   function handleLoginSubmit(payload: LoginPayload) {
@@ -37,7 +50,7 @@ export function LoginForm({ onSubmit }: LoginFormProps) {
                 onClick={() => setShowPassword((x) => !x)}
                 edge="end"
               >
-                {showPassword ? <VisibilityOff /> : <Visibility />}
+                {showPassword ? <Visibility /> : <VisibilityOff />}
               </IconButton>
             </InputAdornment>
           ),
