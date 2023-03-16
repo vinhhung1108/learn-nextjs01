@@ -58,7 +58,7 @@ export default function LoginPage() {
   return (
     <Box>
       <Paper elevation={4} sx={{ mt: 8, p: 4, maxWidth: '480px', mx: 'auto', textAlign: 'center' }}>
-        <Typography component="h1" variant="h4" sx={{ mb: 3 }}>
+        <Typography component="h1" variant="h4" sx={{ mb: 3, fontWeight: 500 }}>
           LOGIN PAGE
         </Typography>
 
