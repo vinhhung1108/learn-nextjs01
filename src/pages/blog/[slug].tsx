@@ -1,11 +1,11 @@
+import { Seo } from '@/components/common'
 import { Post } from '@/models'
 import { getPostList } from '@/utils/posts'
 import { Container, Divider } from '@mui/material'
 import { Box } from '@mui/system'
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next'
-import { useRouter } from 'next/router'
-import React, { use } from 'react'
-import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import Script from 'next/script'
+import React from 'react'
 import rehypeDocument from 'rehype-document'
 import rehypeFormat from 'rehype-format'
 import rehypeSlug from 'rehype-slug'
@@ -15,8 +15,6 @@ import remarkPrism from 'remark-prism'
 import remarkRehype from 'remark-rehype'
 import remarkToc from 'remark-toc'
 import { unified } from 'unified'
-import Script from 'next/script'
-import { Seo } from '@/components/common'
 
 export interface BlogPageProps {
   post: Post

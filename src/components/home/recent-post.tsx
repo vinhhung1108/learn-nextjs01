@@ -2,6 +2,7 @@ import { Post } from '@/models'
 import { Container, Link as MuiLink, Stack, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import Link from 'next/link'
+import React from 'react'
 import { PostCard } from './post-card'
 
 export function RecentPosts() {

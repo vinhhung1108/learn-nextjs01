@@ -9,6 +9,7 @@ import Document, {
   Main,
   NextScript,
 } from 'next/document'
+import React from 'react'
 
 interface MyDocumentProps extends DocumentProps {
   emotionStyleTags: EmotionJSX.Element[]

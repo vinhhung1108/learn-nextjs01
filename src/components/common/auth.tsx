@@ -1,6 +1,6 @@
 import { useAuth } from '@/hooks'
 import { useRouter } from 'next/router'
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useSWRConfig } from 'swr'
 
 export interface AuthProps {
@@ -22,7 +22,7 @@ export function Auth({ children }: AuthProps) {
   }
 
   useEffect(() => {
-    if (!isLoading && !profile?.data?.username) router.push('/login')
+    if (!isLoading && !profile?.username) router.push('/login')
   }, [router, profile, isLoading])
 
   //   console.log(profile)

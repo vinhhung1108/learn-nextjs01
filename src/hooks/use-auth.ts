@@ -1,21 +1,41 @@
 import { authApi } from '@/api-client'
-import { LoginPayload } from '@/models'
+import { StorageKeys } from '@/constants'
+import { LoginPayload, UserProfile } from '@/models'
 import { useRouter } from 'next/router'
 import useSWR, { useSWRConfig } from 'swr'
-import { PublicConfiguration } from 'swr/_internal'
+import { PublicConfiguration, SWRConfiguration } from 'swr/_internal'
 
+function getUserInfo(): UserProfile | null {
+  try {
+    return JSON.parse(localStorage.getItem(StorageKeys.USER_INFO) || '')
+  } catch (error) {
+    console.log(error)
+    return null
+  }
+}
 export function useAuth(option?: Partial<PublicConfiguration>) {
   const router = useRouter()
   const { mutate: mutateAll } = useSWRConfig()
+  const configSWR: SWRConfiguration = {
+    dedupingInterval: 60 * 60 * 1000,
+    ...option,
+    fallbackData: getUserInfo,
+    onSuccess(data) {
+      //save user info to localstorage
+      localStorage.setItem(StorageKeys.USER_INFO, JSON.stringify(data))
+    },
+    onError(err) {
+      //failed to get profile
+      console.log(err)
+      logout()
+    },
+  }
   const {
     data: profile,
     error,
     mutate,
     isLoading,
-  } = useSWR('/auth/profile', {
-    dedupingInterval: 60 * 60 * 1000, //1hr
-    ...option,
-  })
+  } = useSWR<UserProfile | null>('/auth/profile', configSWR)
 
   async function login(payload: LoginPayload) {
     await authApi.login(payload)
@@ -23,11 +43,12 @@ export function useAuth(option?: Partial<PublicConfiguration>) {
   }
   async function logout() {
     await authApi.logout()
+    localStorage.removeItem(StorageKeys.USER_INFO)
     // await mutate({ data: {} }, true)
     await mutateAll('/auth/profile', { data: {} }, true)
   }
   return {
-    profile,
+    profile: profile?.data,
     error,
     login,
     logout,

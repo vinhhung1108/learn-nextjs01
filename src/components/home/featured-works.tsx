@@ -1,7 +1,8 @@
+import { WorkList } from '@/components/work'
 import { Work } from '@/models/work'
 import { Container, Typography } from '@mui/material'
 import { Box } from '@mui/system'
-import { WorkList } from '@/components/work'
+import React from 'react'
 
 export function FeatureWorks() {
   const workList: Work[] = [

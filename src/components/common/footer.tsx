@@ -1,7 +1,7 @@
 import { Facebook, Instagram, LinkedIn, Twitter } from '@mui/icons-material'
-import { Box, Icon, Stack, Typography } from '@mui/material'
-import { Link as MuiLink } from '@mui/material'
+import { Box, Icon, Link as MuiLink, Stack, Typography } from '@mui/material'
 import Link from 'next/link'
+import React from 'react'
 
 export function Footer() {
   const socialLink = [
