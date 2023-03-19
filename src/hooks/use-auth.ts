@@ -1,5 +1,5 @@
 import { authApi } from '@/api-client'
-import { StorageKeys } from '@/constants'
+import { StorageKeys, TimeByMilliseconds } from '@/constants'
 import { LoginPayload, UserProfile } from '@/models'
 import { useRouter } from 'next/router'
 import useSWR, { useSWRConfig } from 'swr'
@@ -13,11 +13,12 @@ function getUserInfo(): UserProfile | null {
     return null
   }
 }
+
 export function useAuth(option?: Partial<PublicConfiguration>) {
   const router = useRouter()
   const { mutate: mutateAll } = useSWRConfig()
   const configSWR: SWRConfiguration = {
-    dedupingInterval: 60 * 60 * 1000,
+    dedupingInterval: TimeByMilliseconds.HOUR,
     ...option,
     fallbackData: getUserInfo,
     onSuccess(data) {
@@ -45,7 +46,7 @@ export function useAuth(option?: Partial<PublicConfiguration>) {
     await authApi.logout()
     localStorage.removeItem(StorageKeys.USER_INFO)
     // await mutate({ data: {} }, true)
-    await mutateAll('/auth/profile', { data: {} }, true)
+    await mutateAll('/auth/profile', { data: {} }, false)
   }
   return {
     profile: profile?.data,

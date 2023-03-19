@@ -1,5 +1,5 @@
 import { StudentDetail } from '@/components/swr'
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 export default function SWRPage() {
   const [detailList, setDetailList] = useState([1, 1, 1])

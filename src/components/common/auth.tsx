@@ -1,6 +1,7 @@
+import { TimeByMilliseconds } from '@/constants'
 import { useAuth } from '@/hooks'
 import { useRouter } from 'next/router'
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { useSWRConfig } from 'swr'
 
 export interface AuthProps {
@@ -12,7 +13,7 @@ export function Auth({ children }: AuthProps) {
   const { profile, isLoading, error, mutate } = useAuth({
     revalidateOnFocus: true,
     revalidateOnMount: true,
-    dedupingInterval: 2000,
+    dedupingInterval: TimeByMilliseconds.HOUR,
   })
 
   if (error && !isLoading) {

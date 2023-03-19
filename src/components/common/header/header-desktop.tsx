@@ -1,18 +1,21 @@
+import { TimeByMilliseconds } from '@/constants'
 import { useAuth } from '@/hooks'
 import { Container, Link as MuiLink, Stack } from '@mui/material'
 import { Box } from '@mui/system'
 import clsx from 'clsx'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import React from 'react'
 import { ROUTER_LIST } from './routers'
 
 export interface HeaderDesktopProps {}
 
 export function HeaderDesktop(props: HeaderDesktopProps) {
   const router = useRouter()
+
   const { profile, logout } = useAuth()
+
   const isLoggedIn = Boolean(profile?.username)
+
   const routeList = ROUTER_LIST.filter((route) => !route.requiredLogin || isLoggedIn)
   return (
     <Box display={{ xs: 'none', md: 'block' }} py={2}>

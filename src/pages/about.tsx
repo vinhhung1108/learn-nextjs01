@@ -2,7 +2,7 @@ import { AdminLayout } from '@/components/layout'
 import { Box, Button, Typography } from '@mui/material'
 import { lightBlue } from '@mui/material/colors'
 import { useRouter } from 'next/router'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 // const Header = dynamic(()=> import('@/components/common/header'), { ssr: false})
 

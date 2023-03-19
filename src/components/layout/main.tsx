@@ -1,7 +1,7 @@
 import { LayoutProps } from '@/models'
 import { Stack } from '@mui/material'
 import { Box } from '@mui/system'
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { Footer, Header } from '../common'
 
 export function MainLayout({ children }: LayoutProps) {
